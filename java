@@ -1,30 +1,30 @@
-package org.arpit.java2blog;
- 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
- 
-public class RegexCurrencySymbol {
- 
-    public static void main(String args[]) {
-        String password1 = "Java2blog@";
- 
-        String regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
-        boolean validPassword = isValidPassword(password1,regex);
-        System.out.println("Java2blog@ is valid password:" +validPassword);
- 
-        String password2 = "helloword#123";
- 
-        String regex1 = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
-        boolean validPassword1 = isValidPassword(password2,regex1);
-        // No upper case
-        System.out.println("helloword#123 is valid password:" +validPassword1);
+public class Complex {
+
+    double real;
+    double imag;
+
+    public Complex(double real, double imag) {
+        this.real = real;
+        this.imag = imag;
     }
- 
-    public static boolean isValidPassword(String password,String regex)
+
+    public static void main(String[] args) {
+        Complex n1 = new Complex(2.3, 4.5),
+                n2 = new Complex(3.4, 5.0),
+                temp;
+
+        temp = add(n1, n2);
+
+        System.out.printf("Sum = %.1f + %.1fi", temp.real, temp.imag);
+    }
+
+    public static Complex add(Complex n1, Complex n2)
     {
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(password);
-        return matcher.matches();
+        Complex temp = new Complex(0.0, 0.0);
+
+        temp.real = n1.real + n2.real;
+        temp.imag = n1.imag + n2.imag;
+
+        return(temp);
     }
 }
- 
